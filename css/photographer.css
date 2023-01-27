@@ -1,8 +1,7 @@
-#contact_modal {
-    display: none;
-}
 
-.photograph-header {
+/* Photographer profile page */
+
+.photographer_header {
     background-color: var(--color-gray-background);
     height: 300px;
     margin: 0 100px;
@@ -19,6 +18,12 @@
     background-color: var(--color-primary);
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Contact modal */
+
+#contact_modal {
+    display: none;
 }
 
 .modal {
