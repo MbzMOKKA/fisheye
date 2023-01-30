@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/logo.png" id="logo" />
-    </header>
-    <main>
-      <div class="photographer_header">
-        <button class="contact_button" onclick="openModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-          <!--dynamically generated content-->
+<html lang="fr">
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+        <title>Fisheye - photographe</title>
+    </head>
+    <body>
+        <header>
+            <a id="logo" href="index.html"><img src="assets/logo.png" alt="Fisheye Home page" /></a>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-            <!--dynamically generated content-->
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-		</div>
-    <div id="photographer_uploads">
-      <ul>
-        <!--dynamically generated content-->
-      </ul>
-    </div>
-    <script src="/js/pages/photographer.js"></script>
-  </body>
+        <main>
+            <div id="photographer_header">
+                <button id="contact_button">Contactez-moi</button>
+            </div>
+        </main>
+        <div id="contact_modal">
+            <header>
+                <h2>Contactez-moi</h2>
+                <img id="contact_close" src="assets/icons/close.svg" alt="Close Contact form" />
+                <!--dynamically generated content-->
+            </header>
+            <form>
+                <div>
+                    <label>Prénom</label>
+                    <!--dynamically generated content-->
+                    <!-- <input /> -->
+                </div>
+                <button id="contact_send">Envoyer</button>
+            </form>
+        </div>
+        <div id="photographer_uploads">
+            <ul>
+                <!--dynamically generated content-->
+            </ul>
+        </div>
+        <script type="module" src="/js/pages/photographer.js"></script>
+    </body>
 </html>

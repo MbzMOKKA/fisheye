@@ -1,17 +1,19 @@
-@import url("photographer.css");
+@import url('photographer.css');
 
-/* Generic stuff */
+/* #################### Common #################### */
 
 :root {
-    --color-primary: #901C1C;
-    --color-secondary: #D3573C;
+    --color-primary: #901c1c;
+    --color-secondary: #d3573c;
     --color-gray-text: #525252;
-    --color-gray-background: #FAFAFA;
+    --color-gray-background: #fafafa;
+    --photographer-pic-size: 200px;
     --debug-border: dashed red; /*à supprimer à la fin*/
-  }
+}
 
 * {
-    font-family: "DM Sans", sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: normal;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -22,26 +24,48 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
-    
+    padding-top: 48px;
+    padding-bottom: 24px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*Page title*/
 h1 {
     color: var(--color-primary);
-    margin-right: 100px;
+    font-size: 36px;
 }
 
+/*Photographer name*/
 h2 {
     color: var(--color-secondary);
     font-size: 36px;
 }
 
-#logo {
-    height: 50px;
-    margin-left: 100px;
+/*Photographer tagline*/
+h3 {
+    font-weight: bold;
+    font-size: 10px;
 }
 
-/* Homepage */
+#logo img {
+    height: 50px;
+}
+
+.photographer_location {
+    color: var(--color-primary);
+    font-size: 13px;
+}
+
+/* #################### Photographer list #################### */
 
 #photographer_list {
     display: grid;
@@ -50,15 +74,50 @@ h2 {
     margin-top: 100px;
 }
 
-#photographer_list li {
+.photographer_card {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-#photographer_list li img {
-    height: 200px;
-    width: 200px;
+.photographer_card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photographer_card .image-container {
+    position: relative;
+    height: var(--photographer-pic-size);
+    width: var(--photographer-pic-size);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.photographer_card img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.photographer_card a:hover img {
+    width: 125%;
+    height: 125%;
+}
+
+.photographer_card h3 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.photographer_card .photographer_price {
+    color: var(--color-gray-text);
+    font-size: 9px;
 }
