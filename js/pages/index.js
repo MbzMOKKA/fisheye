@@ -1,5 +1,4 @@
 //Imports
-import { photographerList } from '../utils/domLinker.js';
 import { photographerFactory } from '../factories/photographer.js';
 import { getPhotographers } from '../utils/apiCommunication.js';
 
@@ -7,7 +6,7 @@ import { getPhotographers } from '../utils/apiCommunication.js';
 async function displayData(photographers) {
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
-        photographerModel.getUserCardDOM(photographerList);
+        photographerModel.getUserCardDOM();
     });
 }
 

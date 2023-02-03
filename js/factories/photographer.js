@@ -1,4 +1,5 @@
 //Imports
+import { photographerList } from '../utils/domLinker.js';
 import { createDomElement } from '../utils/domGenerator.js';
 import formatPrice from '../utils/formatPrice.js';
 
@@ -6,9 +7,14 @@ import formatPrice from '../utils/formatPrice.js';
 export function photographerFactory(data) {
     const { name, portrait, city, country, id, price, tagline } = data;
 
-    const picture = `assets/photographers/${portrait}`;
+    const displayedName = name;
+    const displayedPortrait = `assets/photographers/${portrait}`;
+    const displayedLocation = `${city}, ${country}`;
+    const displayedTagline = tagline;
+    const displayedPrice = formatPrice(price);
 
-    function getUserCardDOM(domParent) {
+    function getUserCardDOM() {
+        const domParent = photographerList;
         const domCard = createDomElement('li', domParent);
         domCard.setAttribute('class', 'photographer_card');
 
@@ -16,25 +22,25 @@ export function photographerFactory(data) {
         domLink.setAttribute('href', 'photographer.html?id=' + id);
         domLink.setAttribute('aria-label', name);
 
-        const domImgContainer = createDomElement('div', domLink);
-        domImgContainer.setAttribute('class', 'image-container');
+        const domPortraitContainer = createDomElement('div', domLink);
+        domPortraitContainer.setAttribute('class', 'photographer_thumbnail-container');
 
-        const domImage = createDomElement('img', domImgContainer);
-        domImage.setAttribute('src', picture);
+        const domPortrait = createDomElement('img', domPortraitContainer);
+        domPortrait.setAttribute('src', displayedPortrait);
 
         const domName = createDomElement('h2', domLink);
-        domName.textContent = name;
+        domName.textContent = displayedName;
 
         const domLocation = createDomElement('p', domCard);
         domLocation.setAttribute('class', 'photographer_location');
-        domLocation.textContent = `${city}, ${country}`;
+        domLocation.textContent = displayedLocation;
 
         const domTagline = createDomElement('h3', domCard);
-        domTagline.textContent = `${tagline}`;
+        domTagline.textContent = displayedTagline;
 
         const domPrice = createDomElement('p', domCard);
         domPrice.setAttribute('class', 'photographer_price');
-        domPrice.textContent = formatPrice(price);
+        domPrice.textContent = displayedPrice;
     }
-    return { name, picture, getUserCardDOM };
+    return { getUserCardDOM, displayedName, displayedPortrait, displayedLocation, displayedTagline, displayedPrice };
 }

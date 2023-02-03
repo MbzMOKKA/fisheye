@@ -4,19 +4,26 @@
     background-color: var(--color-gray-background);
     height: 300px;
     margin: 0 100px;
+    padding-left: 48px;
+    padding-right: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: var(--color-primary);
-    border-radius: 5px;
-    cursor: pointer;
+/*Photographer name*/
+#photographer_header h2 {
+    font-size: 64px;
+}
+
+/*Photographer tagline*/
+#photographer_header h3 {
+    font-size: 18px;
+}
+
+#photographer_header .photographer_location {
+    font-size: 24px;
 }
 
 /* #################### Contact modal #################### */

@@ -65,6 +65,19 @@ h3 {
     font-size: 13px;
 }
 
+.button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* #################### Photographer list #################### */
 
 #photographer_list {
@@ -87,7 +100,7 @@ h3 {
     align-items: center;
 }
 
-.photographer_card .image-container {
+.photographer_thumbnail-container {
     position: relative;
     height: var(--photographer-pic-size);
     width: var(--photographer-pic-size);
@@ -97,7 +110,7 @@ h3 {
     margin-bottom: 12px;
 }
 
-.photographer_card img {
+.photographer_thumbnail-container img {
     position: absolute;
     top: 50%;
     left: 50%;
