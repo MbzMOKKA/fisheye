@@ -1,11 +1,14 @@
 @import url('photographer.css');
+@import url('media.css');
 
 /* #################### Common #################### */
 
 :root {
     --color-primary: #901c1c;
     --color-secondary: #d3573c;
+    --color-tertiary: #db8876;
     --color-gray-text: #525252;
+    --color-dark-gray-text: #312e2e;
     --color-gray-background: #fafafa;
     --photographer-pic-size: 200px;
     --debug-border: dashed red; /*à supprimer à la fin*/
@@ -19,7 +22,7 @@
     padding: 0;
 }
 
-header {
+#page_header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,6 +33,10 @@ header {
     padding-right: 100px;
 }
 
+#page_with-horizontal-margin {
+    margin: 0 100px;
+}
+
 li {
     list-style: none;
 }
@@ -38,26 +45,23 @@ a {
     text-decoration: none;
 }
 
-/*Page title*/
-h1 {
+#logo img {
+    height: 50px;
+}
+
+#page-title {
     color: var(--color-primary);
     font-size: 36px;
 }
 
-/*Photographer name*/
-h2 {
+.photographer_name {
     color: var(--color-secondary);
     font-size: 36px;
 }
 
-/*Photographer tagline*/
-h3 {
+.photographer_tagline {
     font-weight: bold;
     font-size: 10px;
-}
-
-#logo img {
-    height: 50px;
 }
 
 .photographer_location {
@@ -78,59 +82,7 @@ h3 {
     cursor: pointer;
 }
 
-/* #################### Photographer list #################### */
-
-#photographer_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-}
-
-.photographer_card {
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.photographer_card a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.photographer_thumbnail-container {
-    position: relative;
-    height: var(--photographer-pic-size);
-    width: var(--photographer-pic-size);
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 12px;
-}
-
-.photographer_thumbnail-container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-}
-
-.photographer_card a:hover img {
-    width: 125%;
-    height: 125%;
-}
-
-.photographer_card h3 {
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-.photographer_card .photographer_price {
-    color: var(--color-gray-text);
-    font-size: 9px;
+.button:hover {
+    background-color: var(--color-secondary);
+    color: black;
 }

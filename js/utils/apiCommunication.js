@@ -27,13 +27,13 @@ export async function getPhotographer(id) {
 }
 
 //Fetches and returns the datas of the medias uploaded by one photographer from the API
-export async function getMedia(id) {
+export async function getMedias(id) {
     const { media } = await getData();
-    let photographerMedia = [];
+    let photographerMedias = [];
     for (const m of media) {
         if (m.photographerId == id) {
-            photographerMedia.push(m);
+            photographerMedias.push(m);
         }
     }
-    return photographerMedia;
+    return photographerMedias;
 }

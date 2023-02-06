@@ -20,22 +20,26 @@ export function photographerFactory(data) {
 
         const domLink = createDomElement('a', domCard);
         domLink.setAttribute('href', 'photographer.html?id=' + id);
-        domLink.setAttribute('aria-label', name);
+        domLink.setAttribute('aria-label', displayedName);
 
         const domPortraitContainer = createDomElement('div', domLink);
         domPortraitContainer.setAttribute('class', 'photographer_thumbnail-container');
 
         const domPortrait = createDomElement('img', domPortraitContainer);
         domPortrait.setAttribute('src', displayedPortrait);
+        domPortrait.setAttribute('draggable', false);
+        domPortrait.setAttribute('alt', '');
 
         const domName = createDomElement('h2', domLink);
+        domName.setAttribute('class', 'photographer_name');
         domName.textContent = displayedName;
 
         const domLocation = createDomElement('p', domCard);
         domLocation.setAttribute('class', 'photographer_location');
         domLocation.textContent = displayedLocation;
 
-        const domTagline = createDomElement('h3', domCard);
+        const domTagline = createDomElement('p', domCard);
+        domTagline.setAttribute('class', 'photographer_tagline');
         domTagline.textContent = displayedTagline;
 
         const domPrice = createDomElement('p', domCard);

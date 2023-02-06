@@ -1,29 +1,45 @@
 //Imports
 import { photographerFactory } from '../factories/photographer.js';
-import { getPhotographer, getMedia } from '../utils/apiCommunication.js';
-import { photographerHeader, photographerInfos } from '../utils/domLinker.js';
+import { mediaFactory } from '../factories/media.js';
+import { contactAddListeners } from '../utils/contactForm.js';
+import { getPhotographer, getMedias } from '../utils/apiCommunication.js';
 
-//Display the photographer's infos on the photographer's profile page
+//Displays the photographer's infos on the photographer's profile page
 function displayPhotographerInfos(photographer) {
     const photographerModel = photographerFactory(photographer);
 
-    const domName = photographerInfos.querySelector('h2');
-    const domLocation = photographerInfos.querySelector('.photographer_location');
-    const domTagline = photographerInfos.querySelector('h3');
-    const domThumbnail = photographerHeader.querySelector('.photographer_thumbnail-container img');
+    const domName = document.querySelector('.photographer_name');
+    const domLocation = document.querySelector('.photographer_location');
+    const domTagline = document.querySelector('.photographer_tagline');
+    const domPrice = document.querySelector('.photographer_price');
+    const domThumbnail = document.querySelector('.photographer_thumbnail-container img');
+    const domContactName = document.querySelector('#contact_modal header h1');
 
     domName.textContent = photographerModel.displayedName;
     domLocation.textContent = photographerModel.displayedLocation;
     domTagline.textContent = photographerModel.displayedTagline;
+    domPrice.textContent = photographerModel.displayedPrice;
     domThumbnail.setAttribute('src', photographerModel.displayedPortrait);
+    domThumbnail.setAttribute('aria-label', photographerModel.displayedName);
+    domContactName.textContent = `Contactez-moi ${photographerModel.displayedName}`;
 }
 
-//Initializing the page by loading the photographer's media and infos
+//Displays the media uploaded by a photographer on his page
+function displayMedias(medias) {
+    medias.forEach((media) => {
+        const mediaModel = mediaFactory(media);
+        mediaModel.getContentCardDOM();
+    });
+}
+
+//Initializing the page by loading the photographer's media and infos, and adding the proper event listener
 async function init() {
     const id = new URL(document.location).searchParams.get('id');
     const photographer = await getPhotographer(id);
-    const media = await getMedia(id);
+    const medias = await getMedias(id);
     displayPhotographerInfos(photographer);
+    displayMedias(medias);
+    contactAddListeners();
 }
 
 init();

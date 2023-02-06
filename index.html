@@ -3,18 +3,18 @@
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
         <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
         <title>Fisheye</title>
     </head>
-    <body>
-        <header>
-            <a id="logo" href="index.html"><img src="assets/logo.png" alt="Fisheye Home page" /></a>
-            <h1>Nos photographes</h1>
+    <body aria-hidden="false">
+        <header id="page_header">
+            <a id="logo" href="index.html"><img src="assets/logo.png" alt="Page d'accueil Fisheye" draggable="false" /></a>
+            <h1 id="page-title">Nos photographes</h1>
         </header>
         <main>
-            <ul id="photographer_list" aria-label="Photographers">
-                <!--dynamically generated content-->
+            <ul id="photographer_list" aria-label="Photographes">
+                <!--dynamically generated-->
             </ul>
         </main>
         <script type="module" src="js/pages/index.js"></script>

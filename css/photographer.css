@@ -1,9 +1,67 @@
+/* #################### Photographer list #################### */
+
+#photographer_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.photographer_card {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photographer_card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photographer_thumbnail-container {
+    position: relative;
+    height: var(--photographer-pic-size);
+    width: var(--photographer-pic-size);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.photographer_thumbnail-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.photographer_card a:hover img {
+    width: 125%;
+    height: 125%;
+}
+
+.photographer_card h3 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.photographer_card .photographer_price {
+    color: var(--color-gray-text);
+    font-size: 9px;
+}
+
 /* #################### Photographer profile page #################### */
+
+/*Header*/
 
 #photographer_header {
     background-color: var(--color-gray-background);
     height: 300px;
-    margin: 0 100px;
     padding-left: 48px;
     padding-right: 48px;
     display: flex;
@@ -12,29 +70,69 @@
     align-items: center;
 }
 
-/*Photographer name*/
-#photographer_header h2 {
+#photographer_header .photographer_name {
     font-size: 64px;
 }
 
-/*Photographer tagline*/
-#photographer_header h3 {
+#photographer_header .photographer_tagline {
     font-size: 18px;
+    font-weight: normal;
 }
 
 #photographer_header .photographer_location {
     font-size: 24px;
+    margin-bottom: 18px;
+}
+
+/*Fixed footer*/
+
+#photographer_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--color-tertiary);
+    position: fixed;
+    bottom: 0;
+    right: 36px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 20px 30px 15px 30px;
+}
+
+#photographer_footer p {
+    font-size: 24px;
+    font-weight: bold;
+}
+#photographer_footer .like_count {
+    margin-right: 67px;
 }
 
 /* #################### Contact modal #################### */
+
+.modal_background {
+    display: none;
+}
+
+.modal_background:has(#contact_modal[open]) {
+    background-color: #c4c4c470;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 #contact_modal {
     display: none;
 }
 
-#contact_modal {
-    border-radius: 5px;
-    background-color: var(--color-secondary);
+#contact_modal[open] {
+    background-color: var(--color-tertiary);
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -42,32 +140,49 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
+/*Header*/
+
 #contact_modal header {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
 }
 
+#contact_modal header h1 {
+    font-size: 64px;
+    font-weight: normal;
+    margin-top: -10px;
+    line-height: 1;
+}
+
 #contact_modal header img {
+    margin-left: 18px;
+}
+
+#contact_modal header img:hover {
     cursor: pointer;
 }
 
-#contact_modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
+/*Form*/
 
 #contact_modal form {
     display: flex;
     width: 100%;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
+    margin-top: 18px;
 }
 
 #contact_modal form label {
-    color: var(--color-gray-text);
+    color: var(--color-dark-gray-text);
     font-size: 36px;
 }
 
@@ -79,9 +194,22 @@
     margin-bottom: 26px;
 }
 
-#contact_modal form input {
+.contact_input {
     width: 100%;
     height: 68px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
+    color: var(--color-gray-text);
+    font-size: 24px;
+}
+
+.contact_input-container textarea {
+    resize: none;
+    height: 170px;
+}
+
+.contact_input:focus {
+    outline: none !important;
+    border: 2px solid var(--color-gray-text);
 }

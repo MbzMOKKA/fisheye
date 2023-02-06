@@ -3,47 +3,67 @@
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
         <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
         <title>Fisheye - photographe</title>
     </head>
-    <body>
-        <header>
-            <a id="logo" href="index.html"><img src="assets/logo.png" alt="Fisheye Home page" /></a>
+    <body aria-hidden="false">
+        <header id="page_header">
+            <a id="logo" href="index.html"><img src="assets/logo.png" alt="Page d'accueil Fisheye" draggable="false" /></a>
         </header>
-        <main>
-            <div id="photographer_header">
+        <main id="page_with-horizontal-margin">
+            <section id="photographer_header">
                 <div id="photographer_infos">
-                    <h2><!--dynamically generated content--></h2>
-                    <p class="photographer_location"><!--dynamically generated content--></p>
-                    <h3><!--dynamically generated content--></h3>
+                    <h1 class="photographer_name"><!--dynamically generated--></h1>
+                    <p class="photographer_location"><!--dynamically generated--></p>
+                    <p class="photographer_tagline"><!--dynamically generated--></p>
                 </div>
-                <button id="contact_button" class="button">Contactez-moi</button>
+                <button id="contact_button" class="button" aria-label="Contactez-moi">Contactez-moi</button>
                 <div class="photographer_thumbnail-container">
-                    <img src="" />
+                    <img src="" alt="" draggable="false" />
                 </div>
+            </section>
+            <form id="media_filters">
+                <label>Trier par</label>
+            </form>
+            <ul id="media_list">
+                <!--dynamically generated-->
+            </ul>
+            <section id="photographer_footer">
+                <div class="like_count">
+                    <p>297 081</p>
+                    <img src="assets/icons/like.svg" alt="J'aimes" />
+                </div>
+                <p class="photographer_price"><!--dynamically generated--></p>
+            </section>
+            <div class="modal_background" aria-hidden="true">
+                <dialog id="contact_modal" aria-labelledby="contact_modal_title">
+                    <header>
+                        <h1 id="contact_modal_title"><!--dynamically generated--></h1>
+                        <img id="contact_close" src="assets/icons/close.svg" alt="Fermer le formulaire de contact" tabindex="0" />
+                    </header>
+                    <form>
+                        <div class="contact_input-container">
+                            <label for="contact_input_first-name" id="contact_label_first-name">Prénom</label>
+                            <input class="contact_input" id="contact_input_first-name" type="text" aria-labelledby="contact_label_first-name" />
+                        </div>
+                        <div class="contact_input-container">
+                            <label for="contact_input_last-name" id="contact_label_last-name">Nom</label>
+                            <input class="contact_input" id="contact_input_last-name" type="text" aria-labelledby="contact_label_last-name" />
+                        </div>
+                        <div class="contact_input-container">
+                            <label for="contact_input_email" id="contact_label_email">Email</label>
+                            <input class="contact_input" id="contact_input_email" type="email" aria-labelledby="contact_label_email" />
+                        </div>
+                        <div class="contact_input-container">
+                            <label for="contact_input_message" id="contact_label_message">Votre message</label>
+                            <textarea class="contact_input" id="contact_input_message" rows="3" aria-labelledby="contact_label_message"></textarea>
+                        </div>
+                        <button id="contact_send" class="button" aria-label="Envoyer">Envoyer</button>
+                    </form>
+                </dialog>
             </div>
         </main>
-        <div id="contact_modal">
-            <header>
-                <h2>Contactez-moi</h2>
-                <img id="contact_close" src="assets/icons/close.svg" alt="Close Contact form" />
-                <!--dynamically generated content-->
-            </header>
-            <form>
-                <div>
-                    <label>Prénom</label>
-                    <!--dynamically generated content-->
-                    <!-- <input /> -->
-                </div>
-                <button id="contact_send" class="button">Envoyer</button>
-            </form>
-        </div>
-        <div id="photographer_uploads">
-            <ul>
-                <!--dynamically generated content-->
-            </ul>
-        </div>
         <script type="module" src="/js/pages/photographer.js"></script>
     </body>
 </html>
