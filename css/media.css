@@ -16,17 +16,16 @@
 
 #media_list {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px 94px;
     margin-bottom: 84px;
 }
 
 .media_card {
-    width: 28.5%;
-    margin-bottom: 28px;
+    justify-self: center;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .media_body {

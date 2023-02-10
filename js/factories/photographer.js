@@ -2,8 +2,9 @@
 import { photographerList } from '../utils/domLinker.js';
 import { createDomElement } from '../utils/domGenerator.js';
 import formatPrice from '../utils/formatPrice.js';
+import { interractibleAddEventListener } from '../utils/keyboard.js';
 
-//Returns a photographer object
+//Return a photographer object
 export function photographerFactory(data) {
     const { name, portrait, city, country, id, price, tagline } = data;
 
@@ -21,6 +22,10 @@ export function photographerFactory(data) {
         const domLink = createDomElement('a', domCard);
         domLink.setAttribute('href', 'photographer.html?id=' + id);
         domLink.setAttribute('aria-label', displayedName);
+        interractibleAddEventListener(domLink, () => {
+            const link = domLink.getAttribute('href');
+            location.href = link;
+        });
 
         const domPortraitContainer = createDomElement('div', domLink);
         domPortraitContainer.setAttribute('class', 'photographer_thumbnail-container');

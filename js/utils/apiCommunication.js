@@ -1,4 +1,4 @@
-//Fetches and returns the datas from the API (sample.json for now)
+//Fetch and return the datas from the API (sample.json for now)
 export async function getData() {
     let data = { photographers: [], media: [] };
     const apiURL = 'data/sample.json';
@@ -9,13 +9,13 @@ export async function getData() {
     return data;
 }
 
-//Fetches and returns the datas of every photographers from the API
+//Fetch and return the datas of every photographers from the API
 export async function getPhotographers() {
     const { photographers } = await getData();
     return photographers;
 }
 
-//Fetches and returns the datas of one photographer from the API
+//Fetch and return the datas of one photographer from the API
 export async function getPhotographer(id) {
     const photographers = await getPhotographers();
     for (const p of photographers) {
@@ -26,7 +26,7 @@ export async function getPhotographer(id) {
     return null;
 }
 
-//Fetches and returns the datas of the medias uploaded by one photographer from the API
+//Fetch and return the datas of the medias uploaded by one photographer from the API
 export async function getMedias(id) {
     const { media } = await getData();
     let photographerMedias = [];

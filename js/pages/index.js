@@ -1,8 +1,9 @@
 //Imports
 import { photographerFactory } from '../factories/photographer.js';
 import { getPhotographers } from '../utils/apiCommunication.js';
+import { initCommon } from './common.js';
 
-//Fills the photographer list with its content
+//Fill the photographer list with its content
 async function displayPhotographers(photographers) {
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
@@ -11,9 +12,10 @@ async function displayPhotographers(photographers) {
 }
 
 //Initializing the page by loading the photographers
-async function init() {
+async function initIndexPage() {
     const photographers = await getPhotographers();
     displayPhotographers(photographers);
 }
 
-init();
+initCommon();
+initIndexPage();

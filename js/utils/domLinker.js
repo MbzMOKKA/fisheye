@@ -1,5 +1,6 @@
 //DOM element reference used in JS files
 export const pageBody = document.querySelector('body');
+export const logo = document.querySelector('#logo');
 export const photographerList = document.querySelector('#photographer_list');
 export const mediaList = document.querySelector('#media_list');
 export const contactButton = document.querySelector('#contact_button');

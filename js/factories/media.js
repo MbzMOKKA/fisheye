@@ -2,7 +2,7 @@
 import { mediaList } from '../utils/domLinker.js';
 import { createDomElement } from '../utils/domGenerator.js';
 
-//Returns a media object
+//Return a media object
 export function mediaFactory(data) {
     const { title, image, video, likes } = data;
 
@@ -22,7 +22,7 @@ export function mediaFactory(data) {
         domContentContainer.setAttribute('aria-label', displayedTitle);
         domContentContainer.setAttribute('tabindex', '0');
         domContentContainer.addEventListener('click', () => {
-            console.log('ici');
+            console.log('MEDIA CLICKED');
         });
 
         const domContent = createDomElement(type == 'image' ? 'img' : 'video', domContentContainer);

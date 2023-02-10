@@ -3,8 +3,9 @@ import { photographerFactory } from '../factories/photographer.js';
 import { mediaFactory } from '../factories/media.js';
 import { contactAddListeners } from '../utils/contactForm.js';
 import { getPhotographer, getMedias } from '../utils/apiCommunication.js';
+import { initCommon } from './common.js';
 
-//Displays the photographer's infos on the photographer's profile page
+//Display the photographer's infos on the photographer's profile page
 function displayPhotographerInfos(photographer) {
     const photographerModel = photographerFactory(photographer);
 
@@ -24,7 +25,7 @@ function displayPhotographerInfos(photographer) {
     domContactName.textContent = `Contactez-moi ${photographerModel.displayedName}`;
 }
 
-//Displays the media uploaded by a photographer on his page
+//Display the media uploaded by a photographer on his page
 function displayMedias(medias) {
     medias.forEach((media) => {
         const mediaModel = mediaFactory(media);
@@ -33,7 +34,7 @@ function displayMedias(medias) {
 }
 
 //Initializing the page by loading the photographer's media and infos, and adding the proper event listener
-async function init() {
+async function initPhotographerPage() {
     const id = new URL(document.location).searchParams.get('id');
     const photographer = await getPhotographer(id);
     const medias = await getMedias(id);
@@ -42,4 +43,5 @@ async function init() {
     contactAddListeners();
 }
 
-init();
+initCommon();
+initPhotographerPage();

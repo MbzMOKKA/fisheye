@@ -2,12 +2,12 @@
 import { contactButton, contactModal, contactClose, contactSend, pageBody } from '../utils/domLinker.js';
 import { containerAddKeyboardClamping, interractibleAddEventListener } from '../utils/keyboard.js';
 
-//Checks if the contact modal is opened or not
+//Check if the contact modal is opened or not
 function contactModalIsOpened() {
     return contactModal.parentElement.getAttribute('aria-hidden') == 'false';
 }
 
-//Prints the contact inputs to the console
+//Print the contact inputs to the console
 function contactResultPrint(e) {
     e.preventDefault();
     const domInputFirstName = contactModal.querySelector('#contact_input_first-name');
@@ -20,7 +20,7 @@ function contactResultPrint(e) {
     console.log(`Message : ${domInputMessage.value}`);
 }
 
-//Shows the contact modal
+//Show the contact modal
 function contactModalOpen() {
     contactModal.show();
     pageBody.setAttribute('aria-hidden', 'true');
@@ -29,7 +29,7 @@ function contactModalOpen() {
     contactClose.focus();
 }
 
-//Hides the contact modal
+//Hide the contact modal
 function contactModalClose() {
     contactModal.close();
     pageBody.setAttribute('aria-hidden', 'false');
@@ -38,13 +38,13 @@ function contactModalClose() {
     contactButton.focus();
 }
 
-//Adds the event listeners related to the contact feature
+//Add the event listeners related to the contact feature
 export function contactAddListeners() {
     interractibleAddEventListener(contactButton, contactModalOpen);
     interractibleAddEventListener(contactClose, contactModalClose);
     interractibleAddEventListener(contactSend, contactResultPrint);
     document.addEventListener('keydown', (e) => {
-        //Closes the modal if escape is pressed
+        //Close the modal if escape is pressed
         const keyEscapeIsPressed = e.key === 'Escape';
         if (keyEscapeIsPressed && contactModalIsOpened()) {
             contactClose.click();
