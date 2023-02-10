@@ -1,6 +1,8 @@
 //Imports
 import { mediaList } from '../utils/domLinker.js';
-import { createDomElement } from '../utils/domGenerator.js';
+import { interractibleAddEventListener } from '../utils/keyboard.js';
+import { createDomElement, createMediaDomElement } from '../utils/domGenerator.js';
+import { mediaLightboxOpen } from '../utils/mediaLightbox.js';
 
 //Return a media object
 export function mediaFactory(data) {
@@ -10,9 +12,9 @@ export function mediaFactory(data) {
     const type = image == undefined ? 'video' : 'image';
     const displayedTitle = title;
     const displayedLikes = likes;
-    const displayedContent = type == 'video' ? `assets/medias/videos/${video}` : `assets/medias/images/${image}`;
+    const displayedSrc = type == 'video' ? `assets/medias/videos/${video}` : `assets/medias/images/${image}`;
 
-    function getContentCardDOM() {
+    function getCardDOM() {
         const domParent = mediaList;
         const domCard = createDomElement('li', domParent);
         domCard.setAttribute('class', 'media_card');
@@ -21,23 +23,18 @@ export function mediaFactory(data) {
         domContentContainer.setAttribute('class', 'media_content-container');
         domContentContainer.setAttribute('aria-label', displayedTitle);
         domContentContainer.setAttribute('tabindex', '0');
-        domContentContainer.addEventListener('click', () => {
-            console.log('MEDIA CLICKED');
+        interractibleAddEventListener(domContentContainer, () => {
+            mediaLightboxOpen(domCard);
         });
 
-        const domContent = createDomElement(type == 'image' ? 'img' : 'video', domContentContainer);
-        if (type == 'video') {
-            domContent.setAttribute('loop', true);
-            domContent.setAttribute('autoplay', true);
-            domContent.setAttribute('muted', true);
-        }
-        domContent.setAttribute('src', displayedContent);
-        domContent.setAttribute('draggable', false);
+        const domContent = createMediaDomElement(type == 'image' ? 'img' : 'video', displayedSrc, domContentContainer);
+        domContent.setAttribute('class', 'media_content');
 
         const domBody = createDomElement('div', domCard);
         domBody.setAttribute('class', 'media_body');
 
         const domTitle = createDomElement('p', domBody);
+        domTitle.setAttribute('class', 'media_title');
         domTitle.textContent = displayedTitle;
 
         const domLikes = createDomElement('div', domBody);
@@ -51,5 +48,5 @@ export function mediaFactory(data) {
         domLikeImg.setAttribute('alt', "J'aimes");
         domLikeImg.setAttribute('tabindex', '0');
     }
-    return { getContentCardDOM };
+    return { getCardDOM, displayedTitle };
 }

@@ -3,6 +3,7 @@ import { photographerFactory } from '../factories/photographer.js';
 import { mediaFactory } from '../factories/media.js';
 import { contactAddListeners } from '../utils/contactForm.js';
 import { getPhotographer, getMedias } from '../utils/apiCommunication.js';
+import { mediaAddListeners } from '../utils/mediaLightbox.js';
 import { initCommon } from './common.js';
 
 //Display the photographer's infos on the photographer's profile page
@@ -29,7 +30,7 @@ function displayPhotographerInfos(photographer) {
 function displayMedias(medias) {
     medias.forEach((media) => {
         const mediaModel = mediaFactory(media);
-        mediaModel.getContentCardDOM();
+        mediaModel.getCardDOM();
     });
 }
 
@@ -41,6 +42,7 @@ async function initPhotographerPage() {
     displayPhotographerInfos(photographer);
     displayMedias(medias);
     contactAddListeners();
+    mediaAddListeners();
 }
 
 initCommon();

@@ -7,7 +7,7 @@ import { initCommon } from './common.js';
 async function displayPhotographers(photographers) {
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
-        photographerModel.getUserCardDOM();
+        photographerModel.getCardDOM();
     });
 }
 

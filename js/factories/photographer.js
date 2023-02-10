@@ -14,7 +14,7 @@ export function photographerFactory(data) {
     const displayedTagline = tagline;
     const displayedPrice = formatPrice(price);
 
-    function getUserCardDOM() {
+    function getCardDOM() {
         const domParent = photographerList;
         const domCard = createDomElement('li', domParent);
         domCard.setAttribute('class', 'photographer_card');
@@ -51,5 +51,5 @@ export function photographerFactory(data) {
         domPrice.setAttribute('class', 'photographer_price');
         domPrice.textContent = displayedPrice;
     }
-    return { getUserCardDOM, displayedName, displayedPortrait, displayedLocation, displayedTagline, displayedPrice };
+    return { getCardDOM, displayedName, displayedPortrait, displayedLocation, displayedTagline, displayedPrice };
 }

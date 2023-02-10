@@ -36,12 +36,15 @@
     margin-top: 8px;
 }
 
-.media_body p {
+.media_title {
     font-size: 24px;
+    color: var(--color-primary);
 }
 
 .media_body .like_count p {
     font-weight: bold;
+    font-size: 24px;
+    color: var(--color-primary);
 }
 
 .media_content-container {
@@ -55,8 +58,7 @@
     cursor: pointer;
 }
 
-.media_content-container img,
-.media_content-container video {
+.media_content {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -73,4 +75,83 @@
 
 .like_count p {
     margin-right: 6px;
+}
+
+/* #################### Media lightbox #################### */
+
+#media_lightbox {
+    display: none;
+}
+
+#media_lightbox[open] {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px 100px 0px 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+#media_lightbox main {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lightbox_control {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+}
+
+.lightbox_control:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.lightbox_media_container {
+    width: 100%;
+    height: 93%;
+    position: relative;
+}
+
+.lightbox_media {
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.lightbox_title_container {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#media_prev {
+    top: 50%;
+    left: -80px;
+}
+
+#media_next {
+    top: 50%;
+    right: -80px;
+}
+
+#media_close {
+    top: 16px;
+    right: -80px;
 }

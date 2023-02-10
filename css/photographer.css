@@ -166,8 +166,9 @@
     margin-left: 18px;
 }
 
-#contact_modal header img:hover {
+#contact_close:hover {
     cursor: pointer;
+    transform: scale(1.5);
 }
 
 /*Form*/

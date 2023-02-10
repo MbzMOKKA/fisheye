@@ -14,9 +14,9 @@
         <main id="page_with-horizontal-margin">
             <section id="photographer_header">
                 <div id="photographer_infos">
-                    <h1 class="photographer_name"><!--dynamically generated--></h1>
-                    <p class="photographer_location"><!--dynamically generated--></p>
-                    <p class="photographer_tagline"><!--dynamically generated--></p>
+                    <h1 class="photographer_name"></h1>
+                    <p class="photographer_location"></p>
+                    <p class="photographer_tagline"></p>
                 </div>
                 <button id="contact_button" class="button" aria-label="Contactez-moi">Contactez-moi</button>
                 <div class="photographer_thumbnail-container">
@@ -26,21 +26,19 @@
             <form id="media_filters">
                 <label>Trier par</label>
             </form>
-            <ul id="media_list">
-                <!--dynamically generated-->
-            </ul>
+            <ul id="media_list"></ul>
             <section id="photographer_footer">
                 <div class="like_count">
                     <p>297 081</p>
                     <img src="assets/icons/like.svg" alt="J'aimes" />
                 </div>
-                <p class="photographer_price"><!--dynamically generated--></p>
+                <p class="photographer_price"></p>
             </section>
             <div class="modal_background" aria-hidden="true">
                 <dialog id="contact_modal" aria-labelledby="contact_modal_title">
                     <header>
-                        <h1 id="contact_modal_title"><!--dynamically generated--></h1>
-                        <img id="contact_close" src="assets/icons/close.svg" alt="Fermer le formulaire de contact" tabindex="0" />
+                        <h1 id="contact_modal_title"></h1>
+                        <img id="contact_close" src="assets/icons/close_white.svg" alt="Fermer le formulaire de contact" tabindex="0" draggable="false" />
                     </header>
                     <form>
                         <div class="contact_input-container">
@@ -63,6 +61,19 @@
                     </form>
                 </dialog>
             </div>
+            <dialog id="media_lightbox" aria-label="Vue agrandit du média" aria-hidden="true">
+                <main>
+                    <div class="lightbox_media_container">
+                        <img class="lightbox_control" id="media_prev" src="assets/icons/arrow_left.svg" alt="Média précédent" tabindex="0" draggable="false" />
+                        <img class="lightbox_control" id="media_next" src="assets/icons/arrow_right.svg" alt="Média suivant" tabindex="0" draggable="false" />
+                        <img class="lightbox_control" id="media_close" src="assets/icons/close.svg" alt="Fermer la vue" tabindex="0" draggable="false" />
+                        <img class="lightbox_media" src="assets/medias/images/Art_Mine.jpg" />
+                    </div>
+                    <div class="lightbox_title_container">
+                        <p class="media_title"></p>
+                    </div>
+                </main>
+            </dialog>
         </main>
         <script type="module" src="/js/pages/photographer.js"></script>
     </body>
