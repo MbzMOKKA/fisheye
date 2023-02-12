@@ -2,6 +2,7 @@
 export const pageBody = document.querySelector('body');
 export const logo = document.querySelector('#logo');
 export const photographerList = document.querySelector('#photographer_list');
+export const photographerTotalLikes = document.querySelector('#photographer_footer .like_count p');
 export const contactButton = document.querySelector('#contact_button');
 export const contactSend = document.querySelector('#contact_send');
 export const contactClose = document.querySelector('#contact_close');

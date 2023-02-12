@@ -44,7 +44,6 @@
 .media_body .like_count p {
     font-weight: bold;
     font-size: 24px;
-    color: var(--color-primary);
 }
 
 .media_content-container {
@@ -71,6 +70,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+}
+
+.like_count[liked='true'] p {
+    color: var(--color-primary);
 }
 
 .like_count p {
@@ -100,6 +103,7 @@
 
 #media_lightbox main {
     width: 85%;
+    max-width: 1050px;
     height: 100%;
     display: flex;
     flex-direction: column;

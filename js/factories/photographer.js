@@ -3,6 +3,7 @@ import { photographerList } from '../utils/domLinker.js';
 import { createDomElement } from '../utils/domGenerator.js';
 import formatPrice from '../utils/formatPrice.js';
 import { interractibleAddEventListener } from '../utils/keyboard.js';
+import { photographerTotalLikes } from '../utils/domLinker.js';
 
 //Return a photographer object
 export function photographerFactory(data) {
@@ -51,5 +52,13 @@ export function photographerFactory(data) {
         domPrice.setAttribute('class', 'photographer_price');
         domPrice.textContent = displayedPrice;
     }
-    return { getCardDOM, displayedName, displayedPortrait, displayedLocation, displayedTagline, displayedPrice };
+
+    function displayTotalLikes(medias) {
+        let likes = 0;
+        medias.forEach((media) => {
+            likes += media.likes;
+        });
+        photographerTotalLikes.textContent = likes;
+    }
+    return { getCardDOM, displayTotalLikes, displayedName, displayedPortrait, displayedLocation, displayedTagline, displayedPrice };
 }

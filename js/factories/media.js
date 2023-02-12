@@ -1,5 +1,5 @@
 //Imports
-import { mediaList } from '../utils/domLinker.js';
+import { mediaList, photographerTotalLikes } from '../utils/domLinker.js';
 import { interractibleAddEventListener } from '../utils/keyboard.js';
 import { createDomElement, createMediaDomElement } from '../utils/domGenerator.js';
 import { mediaLightboxOpen } from '../utils/mediaLightbox.js';
@@ -8,7 +8,6 @@ import { mediaLightboxOpen } from '../utils/mediaLightbox.js';
 export function mediaFactory(data) {
     const { title, image, video, likes } = data;
 
-    //console.log(data);
     const type = image == undefined ? 'video' : 'image';
     const displayedTitle = title;
     const displayedLikes = likes;
@@ -39,6 +38,24 @@ export function mediaFactory(data) {
 
         const domLikes = createDomElement('div', domBody);
         domLikes.setAttribute('class', 'like_count');
+        domLikes.setAttribute('liked', 'false');
+        domLikes.setAttribute('tabindex', '0');
+        interractibleAddEventListener(domLikes, () => {
+            const isLiked = domLikes.getAttribute('liked');
+            let likes = Math.floor(domLikeCounter.textContent);
+            let totalLikes = photographerTotalLikes.textContent;
+            if (isLiked === 'false') {
+                likes++;
+                totalLikes++;
+                domLikes.setAttribute('liked', 'true');
+            } else {
+                likes--;
+                totalLikes--;
+                domLikes.setAttribute('liked', 'false');
+            }
+            domLikeCounter.textContent = likes;
+            photographerTotalLikes.textContent = totalLikes;
+        });
 
         const domLikeCounter = createDomElement('p', domLikes);
         domLikeCounter.textContent = displayedLikes;
@@ -46,7 +63,6 @@ export function mediaFactory(data) {
         const domLikeImg = createDomElement('img', domLikes);
         domLikeImg.setAttribute('src', 'assets/icons/like.svg');
         domLikeImg.setAttribute('alt', "J'aimes");
-        domLikeImg.setAttribute('tabindex', '0');
     }
     return { getCardDOM, displayedTitle };
 }

@@ -7,9 +7,7 @@ import { mediaAddListeners } from '../utils/mediaLightbox.js';
 import { initCommon } from './common.js';
 
 //Display the photographer's infos on the photographer's profile page
-function displayPhotographerInfos(photographer) {
-    const photographerModel = photographerFactory(photographer);
-
+function displayPhotographerInfos(photographerModel) {
     const domName = document.querySelector('.photographer_name');
     const domLocation = document.querySelector('.photographer_location');
     const domTagline = document.querySelector('.photographer_tagline');
@@ -39,7 +37,9 @@ async function initPhotographerPage() {
     const id = new URL(document.location).searchParams.get('id');
     const photographer = await getPhotographer(id);
     const medias = await getMedias(id);
-    displayPhotographerInfos(photographer);
+    const photographerModel = photographerFactory(photographer);
+    displayPhotographerInfos(photographerModel);
+    photographerModel.displayTotalLikes(medias);
     displayMedias(medias);
     contactAddListeners();
     mediaAddListeners();
