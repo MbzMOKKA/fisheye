@@ -23,8 +23,18 @@
                     <img src="" alt="" draggable="false" />
                 </div>
             </section>
-            <form id="media_filters">
-                <label>Trier par</label>
+            <form id="media_sortings">
+                <label id="media_sortings_label">Trier par</label>
+                <div id="media_sorting_list" aria-expanded="false" role="listbox" aria-activedescendant="media_sorting_date">
+                    <div id="media_sorting_date" class="media_sorting" role="button" aria-selected="true" aria-labelledby="media_sortings_label" tabindex="0">
+                        <p>Date</p>
+                        <img src="assets/icons/arrow_down.svg" alt="Étendre" draggable="false" />
+                    </div>
+                    <div id="media_sortings_expanded" aria-hidden="true">
+                        <div id="media_sorting_hot" class="media_sorting" aria-selected="false" aria-labelledby="media_sortings_label" tabindex="0">Popularité</div>
+                        <div id="media_sorting_title" class="media_sorting" aria-selected="false" aria-labelledby="media_sortings_label" tabindex="0">Titre</div>
+                    </div>
+                </div>
             </form>
             <ul id="media_list"></ul>
             <section id="photographer_footer">
