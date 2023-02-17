@@ -1,4 +1,5 @@
 //Imports
+import { mediaLightboxIsOpened } from './mediaLightbox.js';
 
 //Prevent the keyboard focus to leave a container
 function keyboardClampInputsInContainer(e, firstFocusableElement, lastFocusableElement) {
@@ -43,4 +44,21 @@ export function containerAddKeyboardClamping(domContainer, focusableElements) {
         keyboardClampInputsInContainer(e, firstFocusableElement, lastFocusableElement);
     });
     firstFocusableElement.focus();
+}
+
+//Add an event listener to navigate in the lightbox with the arrow keys
+export function keyboardArrowNavigationListener(domElement, navigationDirection) {
+    document.addEventListener('keydown', (e) => {
+        //-1 = previous, 1 = next
+        let pressed;
+        if (navigationDirection == -1) {
+            pressed = e.key === 'ArrowLeft';
+        } else {
+            pressed = e.key === 'ArrowRight';
+        }
+        if (pressed && mediaLightboxIsOpened()) {
+            e.preventDefault();
+            domElement.click();
+        }
+    });
 }

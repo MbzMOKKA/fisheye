@@ -98,6 +98,7 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 20px 30px 15px 30px;
+    z-index: 2;
 }
 
 #photographer_footer p {
@@ -125,6 +126,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    z-index: 3;
 }
 
 #contact_modal {

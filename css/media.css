@@ -24,6 +24,7 @@
     border-radius: 5px;
     padding: 3px 10px;
     width: 170px;
+    z-index: 1;
 }
 
 #media_sorting_list[aria-expanded='true'] {
@@ -115,7 +116,7 @@
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    z-index: -1;
+    z-index: 0;
 }
 
 .media_content-container:hover {
@@ -164,6 +165,7 @@
     justify-content: center;
     align-items: center;
     border: none;
+    z-index: 3;
 }
 
 #media_lightbox main {

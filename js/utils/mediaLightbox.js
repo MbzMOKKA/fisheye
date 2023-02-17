@@ -1,12 +1,12 @@
 //Imports
-import { mediaLightbox, mediaPrevious, mediaNext, mediaClose, mediaTitle, pageBody, mediaContainer, mediaList } from './domLinker.js';
-import { containerAddKeyboardClamping, interractibleAddEventListener } from '../utils/keyboard.js';
+import { mediaLightbox, mediaPrevious, mediaNext, mediaTitle, mediaClose, pageBody, mediaContainer, mediaList } from './domLinker.js';
+import { containerAddKeyboardClamping, interractibleAddEventListener, keyboardArrowNavigationListener } from '../utils/keyboard.js';
 import { createMediaDomElement } from '../utils/domGenerator.js';
 
 let mediaSelectedRef = null;
 
 //Check if the media lightbox is opened or not
-function mediaLightboxIsOpened() {
+export function mediaLightboxIsOpened() {
     return mediaLightbox.getAttribute('aria-hidden') == 'false';
 }
 
@@ -41,8 +41,7 @@ function mediaLightboxLoad(domCard) {
     domMedia = createMediaDomElement(type, src, mediaContainer, alt, true);
     domMedia.setAttribute('class', 'lightbox_media');
 
-    const domTitle = mediaLightbox.querySelector('.media_title');
-    domTitle.textContent = title;
+    mediaTitle.textContent = title;
 }
 
 //Hide the media lightbox
@@ -79,14 +78,16 @@ export function mediaAddListeners() {
     interractibleAddEventListener(mediaPrevious, () => {
         mediaNavigate(-1);
     });
+    keyboardArrowNavigationListener(mediaPrevious, -1);
     interractibleAddEventListener(mediaNext, () => {
         mediaNavigate(1);
     });
+    keyboardArrowNavigationListener(mediaNext, 1);
     document.addEventListener('keydown', (e) => {
         //Close the modal if escape is pressed
         const keyEscapeIsPressed = e.key === 'Escape';
         if (keyEscapeIsPressed && mediaLightboxIsOpened()) {
-            contactClose.click();
+            mediaClose.click();
         }
     });
     containerAddKeyboardClamping(mediaLightbox, '#media_prev, #media_next, #media_close');
