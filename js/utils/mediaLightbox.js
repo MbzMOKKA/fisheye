@@ -45,12 +45,13 @@ function mediaLightboxLoad(domCard) {
 }
 
 //Hide the media lightbox
-function mediaLightboxClose() {
+function mediaLightboxClose(e) {
     mediaLightbox.close();
     pageBody.setAttribute('aria-hidden', 'false');
     pageBody.classList.remove('no-scroll');
     mediaLightbox.setAttribute('aria-hidden', 'true');
-    //mediaSelectedRef.focus();
+    e.preventDefault();
+    mediaSelectedRef.firstChild.focus();
 }
 
 //Go to the previous or next media while using the lightbox
