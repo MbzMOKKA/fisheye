@@ -1,0 +1,23 @@
+{
+    "name": "front_end_fisheye",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint --ext .js js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MbzMOKKA/fisheye.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MbzMOKKA/fisheye/issues"
+    },
+    "homepage": "https://github.com/MbzMOKKA/fisheye#readme",
+    "devDependencies": {
+        "eslint": "^8.34.0"
+    }
+}
