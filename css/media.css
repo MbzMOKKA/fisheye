@@ -124,9 +124,12 @@
 }
 
 .media_content {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+}
+
+.media_content-container:hover .media_content {
+    width: var(--zoomable-grow-effect);
+    height: var(--zoomable-grow-effect);
 }
 
 /*Like counts*/
@@ -182,11 +185,6 @@
     width: 48px;
     height: 48px;
     position: absolute;
-}
-
-.lightbox_control:hover {
-    cursor: pointer;
-    transform: scale(1.5);
 }
 
 .lightbox_media_container {

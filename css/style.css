@@ -11,7 +11,7 @@
     --color-dark-gray-text: #312e2e;
     --color-gray-background: #fafafa;
     --photographer-pic-size: 200px;
-    --debug-border: dashed red; /*à supprimer à la fin*/
+    --zoomable-grow-effect: 125%;
 }
 
 * {
@@ -80,9 +80,37 @@ a {
     background-color: var(--color-primary);
     border-radius: 5px;
     cursor: pointer;
+    transition-duration: 300ms;
+    transition-property: color, background-color;
 }
 
 .button:hover {
     background-color: var(--color-secondary);
     color: black;
+}
+
+.button_2 {
+    transition-duration: 300ms;
+    transition-property: transform;
+}
+
+.button_2:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.button_2:active {
+    cursor: pointer;
+    transform: scale(0.75);
+}
+
+.zoomable {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 200ms;
+    transition-property: width, height;
 }

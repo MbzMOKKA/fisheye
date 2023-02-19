@@ -19,10 +19,12 @@ export function photographerFactory(data) {
         const domParent = photographerList;
         const domCard = createDomElement('li', domParent);
         domCard.setAttribute('class', 'photographer_card');
+        domCard.setAttribute('tabindex', '0');
 
         const domLink = createDomElement('a', domCard);
         domLink.setAttribute('href', 'photographer.html?id=' + id);
         domLink.setAttribute('aria-label', displayedName);
+        domLink.setAttribute('tabindex', '-1');
         interractibleAddEventListener(domLink, () => {
             const link = domLink.getAttribute('href');
             location.href = link;
@@ -33,6 +35,7 @@ export function photographerFactory(data) {
 
         const domPortrait = createDomElement('img', domPortraitContainer);
         domPortrait.setAttribute('src', displayedPortrait);
+        domPortrait.setAttribute('class', 'zoomable');
         domPortrait.setAttribute('draggable', false);
         domPortrait.setAttribute('alt', '');
 

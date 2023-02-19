@@ -27,7 +27,7 @@ export function mediaFactory(data) {
         });
 
         const domContent = createMediaDomElement(type == 'image' ? 'img' : 'video', displayedSrc, domContentContainer);
-        domContent.setAttribute('class', 'media_content');
+        domContent.setAttribute('class', 'media_content zoomable');
 
         const domBody = createDomElement('div', domCard);
         domBody.setAttribute('class', 'media_body');

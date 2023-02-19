@@ -20,7 +20,7 @@
                 </div>
                 <button id="contact_button" class="button" aria-label="Contactez-moi">Contactez-moi</button>
                 <div class="photographer_thumbnail-container">
-                    <img src="" alt="" draggable="false" />
+                    <img class="zoomable" src="" alt="" draggable="false" />
                 </div>
             </section>
             <div id="media_sortings">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <ul id="media_list"></ul>
-            <section id="photographer_footer">
+            <section id="photographer_footer" tabindex="0">
                 <div class="like_count">
                     <p></p>
                     <img src="assets/icons/like_black.svg" alt="J'aimes" />
@@ -48,7 +48,7 @@
                 <dialog id="contact_modal" aria-labelledby="contact_modal_title">
                     <header>
                         <h1 id="contact_modal_title"></h1>
-                        <img id="contact_close" src="assets/icons/close_white.svg" alt="Fermer le formulaire de contact" tabindex="0" draggable="false" />
+                        <img id="contact_close" class="button_2" src="assets/icons/close_white.svg" alt="Fermer le formulaire de contact" tabindex="0" draggable="false" />
                     </header>
                     <form>
                         <div class="contact_input-container">
@@ -74,9 +74,9 @@
             <dialog id="media_lightbox" aria-label="Vue agrandit du média" aria-hidden="true">
                 <main>
                     <div class="lightbox_media_container">
-                        <img class="lightbox_control" id="media_prev" src="assets/icons/arrow_left.svg" alt="Média précédent" tabindex="0" draggable="false" />
-                        <img class="lightbox_control" id="media_next" src="assets/icons/arrow_right.svg" alt="Média suivant" tabindex="0" draggable="false" />
-                        <img class="lightbox_control" id="media_close" src="assets/icons/close.svg" alt="Fermer la vue" tabindex="0" draggable="false" />
+                        <img class="lightbox_control button_2" id="media_prev" src="assets/icons/arrow_left.svg" alt="Média précédent" tabindex="0" draggable="false" />
+                        <img class="lightbox_control button_2" id="media_next" src="assets/icons/arrow_right.svg" alt="Média suivant" tabindex="0" draggable="false" />
+                        <img class="lightbox_control button_2" id="media_close" src="assets/icons/close.svg" alt="Fermer la vue" tabindex="0" draggable="false" />
                         <img class="lightbox_media" src="" alt="" />
                     </div>
                     <div class="lightbox_title_container">
