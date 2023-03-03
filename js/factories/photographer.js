@@ -19,12 +19,10 @@ export function photographerFactory(data) {
         const domParent = photographerList;
         const domCard = createDomElement('li', domParent);
         domCard.setAttribute('class', 'photographer_card');
-        domCard.setAttribute('tabindex', '0');
 
         const domLink = createDomElement('a', domCard);
         domLink.setAttribute('href', 'photographer.html?id=' + id);
         domLink.setAttribute('aria-label', displayedName);
-        domLink.setAttribute('tabindex', '-1');
         interractibleAddEventListener(domLink, () => {
             const link = domLink.getAttribute('href');
             location.href = link;
@@ -43,15 +41,15 @@ export function photographerFactory(data) {
         domName.setAttribute('class', 'photographer_name');
         domName.textContent = displayedName;
 
-        const domLocation = createDomElement('p', domCard);
+        const domLocation = createDomElement('p', domLink);
         domLocation.setAttribute('class', 'photographer_location');
         domLocation.textContent = displayedLocation;
 
-        const domTagline = createDomElement('p', domCard);
+        const domTagline = createDomElement('p', domLink);
         domTagline.setAttribute('class', 'photographer_tagline');
         domTagline.textContent = displayedTagline;
 
-        const domPrice = createDomElement('p', domCard);
+        const domPrice = createDomElement('p', domLink);
         domPrice.setAttribute('class', 'photographer_price');
         domPrice.textContent = displayedPrice;
     }
@@ -63,5 +61,6 @@ export function photographerFactory(data) {
         });
         photographerTotalLikes.textContent = likes;
     }
+
     return { getCardDOM, displayTotalLikes, displayedName, displayedPortrait, displayedLocation, displayedTagline, displayedPrice };
 }

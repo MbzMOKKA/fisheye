@@ -17,7 +17,7 @@ export function sortingsToggle(e) {
     }
 }
 
-//Select a sorting
+//Select a sorting method
 export function sortingSelect(e) {
     const prevsortingName = sortingSelectedName.textContent;
     const newsortingName = e.target.textContent;

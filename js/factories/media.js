@@ -64,5 +64,6 @@ export function mediaFactory(data) {
         domLikeImg.setAttribute('src', 'assets/icons/like.svg');
         domLikeImg.setAttribute('alt', "J'aimes");
     }
+
     return { getCardDOM, displayedTitle };
 }
